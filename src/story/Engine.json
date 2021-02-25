@@ -1,0 +1,360 @@
+
+
+{
+  "passages": [
+    {
+      "text": "You wake up in a place. There is a convenient person there to help you.\n---\n[[Next->Intro 2]]\n---\n{\n\"region_boundary\": true,\n\"region_nomap\": true\n}",
+      "links": [
+        {
+          "name": "Next",
+          "link": "Intro 2",
+          "pid": "2"
+        }
+      ],
+      "name": "Intro 1",
+      "pid": "1",
+      "position": {
+        "x": "0",
+        "y": "100"
+      }
+    },
+    {
+      "text": "This is the next intro. Part two.\n---\n[[Next->Intro 3]]",
+      "links": [
+        {
+          "name": "Next",
+          "link": "Intro 3",
+          "pid": "3"
+        }
+      ],
+      "name": "Intro 2",
+      "pid": "2",
+      "position": {
+        "x": "125",
+        "y": "100"
+      }
+    },
+    {
+      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n\"region_boundary\": true,\n\"money\":\"++10\",\n\"inventory_add\":\"shiny_stone\"\n}",
+      "links": [
+        {
+          "name": "To Region 1",
+          "link": "Region 1 - Start",
+          "pid": "4"
+        }
+      ],
+      "name": "Intro 3",
+      "pid": "3",
+      "position": {
+        "x": "250",
+        "y": "100"
+      }
+    },
+    {
+      "text": "You are in the entrance to Region 1.\n\n---\n[[North->Region 1 - Apothecary]]\n[[East->Region 1 - Main Street 1]]\n[[South->Region 1 - Scrapyards]]\n---\n{\n\"region_boundary\": true\n}",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Apothecary",
+          "pid": "5"
+        },
+        {
+          "name": "East",
+          "link": "Region 1 - Main Street 1",
+          "pid": "6"
+        },
+        {
+          "name": "South",
+          "link": "Region 1 - Scrapyards",
+          "pid": "7"
+        }
+      ],
+      "name": "Region 1 - Start",
+      "pid": "4",
+      "position": {
+        "x": "100",
+        "y": "375"
+      }
+    },
+    {
+      "text": "There's stuff to buy here. You get a free sample of mushrooms.\n---\n[[South->Region 1 - Start]] \n\n---\n{\n\"inventory_add\": \"mushrooms\"\n}",
+      "links": [
+        {
+          "name": "South",
+          "link": "Region 1 - Start",
+          "pid": "4"
+        }
+      ],
+      "name": "Region 1 - Apothecary",
+      "pid": "5",
+      "position": {
+        "x": "100",
+        "y": "250"
+      }
+    },
+    {
+      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East->Region 1 - Main Street 2]]\n[[West->Region 1 - Start]] ",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Bar",
+          "pid": "8"
+        },
+        {
+          "name": "East",
+          "link": "Region 1 - Main Street 2",
+          "pid": "9"
+        },
+        {
+          "name": "West",
+          "link": "Region 1 - Start",
+          "pid": "4"
+        }
+      ],
+      "name": "Region 1 - Main Street 1",
+      "pid": "6",
+      "position": {
+        "x": "225",
+        "y": "375"
+      }
+    },
+    {
+      "text": "There's junk here\n---\n[[North->Region 1 - Start]] ",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Start",
+          "pid": "4"
+        }
+      ],
+      "name": "Region 1 - Scrapyards",
+      "pid": "7",
+      "position": {
+        "x": "100",
+        "y": "500"
+      }
+    },
+    {
+      "text": "It's the bar. Have a drink.\n\n---\n[[South->Region 1 - Main Street 1]] \n[[Talk to the Barkeep->Region 1 - Barkeep]]",
+      "links": [
+        {
+          "name": "South",
+          "link": "Region 1 - Main Street 1",
+          "pid": "6"
+        },
+        {
+          "name": "Talk to the Barkeep",
+          "link": "Region 1 - Barkeep",
+          "pid": "13"
+        }
+      ],
+      "name": "Region 1 - Bar",
+      "pid": "8",
+      "position": {
+        "x": "225",
+        "y": "250"
+      }
+    },
+    {
+      "text": "More Main Street. People Bustling. \n\n#{inventory_has:shiny_stone}\nA pickpocket steals your Shiny Stone\n#{/inventory_has}\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "links": [
+        {
+          "name": "East",
+          "link": "Region 1 - Main Street 3",
+          "pid": "10"
+        },
+        {
+          "name": "West",
+          "link": "Region 1 - Main Street 1",
+          "pid": "6"
+        }
+      ],
+      "name": "Region 1 - Main Street 2",
+      "pid": "9",
+      "position": {
+        "x": "350",
+        "y": "375"
+      }
+    },
+    {
+      "text": "Main Street is over.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West->Region 1 - Main Street 2]]",
+      "links": [
+        {
+          "name": "South",
+          "link": "Region 1 - Dirt Road 1",
+          "pid": "11"
+        },
+        {
+          "name": "West",
+          "link": "Region 1 - Main Street 2",
+          "pid": "9"
+        }
+      ],
+      "name": "Region 1 - Main Street 3",
+      "pid": "10",
+      "position": {
+        "x": "475",
+        "y": "375"
+      }
+    },
+    {
+      "text": "It's a dirt Road\n\n---\n[[North->Region 1 - Main Street 3]] \n[[South->Region 1 - Dirt Road 2]]",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Main Street 3",
+          "pid": "10"
+        },
+        {
+          "name": "South",
+          "link": "Region 1 - Dirt Road 2",
+          "pid": "12"
+        }
+      ],
+      "name": "Region 1 - Dirt Road 1",
+      "pid": "11",
+      "position": {
+        "x": "475",
+        "y": "500"
+      }
+    },
+    {
+      "text": "More dirt.\n---\n[[North->Region 1 - Dirt Road 1]] \n[[South->Region 1 - Exit]]",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Dirt Road 1",
+          "pid": "11"
+        },
+        {
+          "name": "South",
+          "link": "Region 1 - Exit",
+          "pid": "16"
+        }
+      ],
+      "name": "Region 1 - Dirt Road 2",
+      "pid": "12",
+      "position": {
+        "x": "475",
+        "y": "625"
+      }
+    },
+    {
+      "text": "You chat with the barkeep. Her name is Macademia.\n\n---\n[[Name?->Region 1 - Barkeep's Name]]\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "links": [
+        {
+          "name": "Name?",
+          "link": "Region 1 - Barkeep's Name",
+          "pid": "14"
+        },
+        {
+          "name": "Get a Drink",
+          "link": "Region 1 - Get a Drink",
+          "pid": "15"
+        }
+      ],
+      "name": "Region 1 - Barkeep",
+      "pid": "13",
+      "position": {
+        "x": "350",
+        "y": "250"
+      }
+    },
+    {
+      "text": "She admits its weird. Her parents were weird.\n\n---\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "links": [
+        {
+          "name": "Get a Drink",
+          "link": "Region 1 - Get a Drink",
+          "pid": "15"
+        }
+      ],
+      "name": "Region 1 - Barkeep's Name",
+      "pid": "14",
+      "position": {
+        "x": "475",
+        "y": "125"
+      }
+    },
+    {
+      "text": "You get a drink. It's pretty good\n\n---\n[[Continue->Region 1 - Bar]] \n---\n{\n\"drunkeness\": \"++1\",\n\"money\": \"--7\"\n}",
+      "links": [
+        {
+          "name": "Continue",
+          "link": "Region 1 - Bar",
+          "pid": "8"
+        }
+      ],
+      "name": "Region 1 - Get a Drink",
+      "pid": "15",
+      "position": {
+        "x": "475",
+        "y": "250"
+      }
+    },
+    {
+      "text": "Now leaving Region 1.\n---\n[[North->Region 1 - Dirt Road 2]] \n[[East->Region 2 - Start]]\n---\n{\n\"region_boundary\": true\n}",
+      "links": [
+        {
+          "name": "North",
+          "link": "Region 1 - Dirt Road 2",
+          "pid": "12"
+        },
+        {
+          "name": "East",
+          "link": "Region 2 - Start",
+          "pid": "17"
+        }
+      ],
+      "name": "Region 1 - Exit",
+      "pid": "16",
+      "position": {
+        "x": "475",
+        "y": "750"
+      }
+    },
+    {
+      "text": "You are now in Region 2!\n---\n[[East->Region 2 - Crashed Ship]]\n[[West->Region 1 - Exit]]",
+      "links": [
+        {
+          "name": "East",
+          "link": "Region 2 - Crashed Ship",
+          "pid": "18"
+        },
+        {
+          "name": "West",
+          "link": "Region 1 - Exit",
+          "pid": "16"
+        }
+      ],
+      "name": "Region 2 - Start",
+      "pid": "17",
+      "position": {
+        "x": "700",
+        "y": "750"
+      }
+    },
+    {
+      "text": "It's a Crashed Ship. Uh oh.\n---\n[[West->Region 2 - Start]] ",
+      "links": [
+        {
+          "name": "West",
+          "link": "Region 2 - Start",
+          "pid": "17"
+        }
+      ],
+      "name": "Region 2 - Crashed Ship",
+      "pid": "18",
+      "position": {
+        "x": "825",
+        "y": "750"
+      }
+    }
+  ],
+  "name": "Engine",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.3.8",
+  "ifid": "537AC0AD-7BA0-4ADE-AB4A-007A21113264"
+}
+
