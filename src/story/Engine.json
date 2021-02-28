@@ -156,7 +156,7 @@
       }
     },
     {
-      "text": "More Main Street. People Bustling. \n\n#{inventory_has:shiny_stone}\nA pickpocket steals your Shiny Stone\n#{/inventory_has}\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "text": "More Main Street. People Bustling. \n\n#{inventory_has shiny_stone}\nA woman admires your shiny stone!\n#{/inventory_has}\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---",
       "links": [
         {
           "name": "East",
@@ -177,7 +177,7 @@
       }
     },
     {
-      "text": "Main Street is over.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West->Region 1 - Main Street 2]]",
+      "text": "Main Street is over. You lost your shiny stone.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West->Region 1 - Main Street 2]]\n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "South",
