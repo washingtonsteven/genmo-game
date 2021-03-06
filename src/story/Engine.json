@@ -3,7 +3,7 @@
 {
   "passages": [
     {
-      "text": "You wake up in a place. There is a convenient person there to help you.\n---\n[[Next->Intro 2]]\n---\n{\n\"region_boundary\": true,\n\"region_nomap\": true\n}",
+      "text": "You wake up in a place. There is a convenient person there to help you.\n---\n[[Next->Intro 2]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n    \"region_nomap\": true\n  }\n}",
       "links": [
         {
           "name": "Next",
@@ -35,7 +35,7 @@
       }
     },
     {
-      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n\"region_boundary\": true,\n\"money\":\"++10\",\n\"inventory_add\":\"shiny_stone\"\n}",
+      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "To Region 1",
@@ -51,7 +51,7 @@
       }
     },
     {
-      "text": "You are in the entrance to Region 1.\n\n---\n[[North->Region 1 - Apothecary]]\n[[East->Region 1 - Main Street 1]]\n[[South->Region 1 - Scrapyards]]\n---\n{\n\"region_boundary\": true\n}",
+      "text": "You are in the entrance to Region 1.\n\n---\n[[North->Region 1 - Apothecary]]\n[[East->Region 1 - Main Street 1]]\n[[South->Region 1 - Scrapyards]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  }\n}",
       "links": [
         {
           "name": "North",
@@ -93,7 +93,7 @@
       }
     },
     {
-      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East(!)||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[East(-)||!has shiny_stone->Region 1 - Main Street 2 No Stone]] \n[[West->Region 1 - Start]] ",
+      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[East||!has shiny_stone->Region 1 - Main Street 2 No Stone]] \n[[West->Region 1 - Start]] ",
       "links": [
         {
           "name": "North",
@@ -101,12 +101,12 @@
           "pid": "8"
         },
         {
-          "name": "East(!)||has shiny_stone",
+          "name": "East||has shiny_stone",
           "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
         },
         {
-          "name": "East(-)||!has shiny_stone",
+          "name": "East||!has shiny_stone",
           "link": "Region 1 - Main Street 2 No Stone",
           "pid": "19"
         },
@@ -182,7 +182,7 @@
       }
     },
     {
-      "text": "Main Street is over. You lost your shiny stone.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West(!)||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[West(-)||!has shiny_stone->Region 1 - Main Street 2 No Stone]]\n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "text": "Main Street is over.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[West||!has shiny_stone->Region 1 - Main Street 2 No Stone]]\n",
       "links": [
         {
           "name": "South",
@@ -190,12 +190,12 @@
           "pid": "11"
         },
         {
-          "name": "West(!)||has shiny_stone",
+          "name": "West||has shiny_stone",
           "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
         },
         {
-          "name": "West(-)||!has shiny_stone",
+          "name": "West||!has shiny_stone",
           "link": "Region 1 - Main Street 2 No Stone",
           "pid": "19"
         }
@@ -303,7 +303,7 @@
       }
     },
     {
-      "text": "Now leaving Region 1.\n---\n[[North->Region 1 - Dirt Road 2]] \n[[East->Region 2 - Start]]\n---\n{\n\"region_boundary\": true\n}",
+      "text": "Now leaving Region 1.\n---\n[[North->Region 1 - Dirt Road 2]] \n[[East->Region 2 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  }\n}",
       "links": [
         {
           "name": "North",
@@ -324,7 +324,7 @@
       }
     },
     {
-      "text": "You are now in Region 2!\n---\n[[East->Region 2 - Crashed Ship]]\n[[West->Region 1 - Exit]]",
+      "text": "You are now in Region 2!\n---\n[[East->Region 2 - Crashed Ship]]\n[[West->Region 1 - Exit]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  }\n}",
       "links": [
         {
           "name": "East",
@@ -345,7 +345,7 @@
       }
     },
     {
-      "text": "It's a Crashed Ship. Uh oh.\n---\n[[West->Region 2 - Start]] ",
+      "text": "It's a Crashed Ship. Uh oh.\n---\n[[West->Region 2 - Start]] \n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  }\n}",
       "links": [
         {
           "name": "West",
