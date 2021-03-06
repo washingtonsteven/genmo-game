@@ -93,7 +93,7 @@
       }
     },
     {
-      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East->Region 1 - Main Street 2]]\n[[West->Region 1 - Start]] ",
+      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East(!)||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[East(-)||!has shiny_stone->Region 1 - Main Street 2 No Stone]] \n[[West->Region 1 - Start]] ",
       "links": [
         {
           "name": "North",
@@ -101,9 +101,14 @@
           "pid": "8"
         },
         {
-          "name": "East",
-          "link": "Region 1 - Main Street 2",
+          "name": "East(!)||has shiny_stone",
+          "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
+        },
+        {
+          "name": "East(-)||!has shiny_stone",
+          "link": "Region 1 - Main Street 2 No Stone",
+          "pid": "19"
         },
         {
           "name": "West",
@@ -156,7 +161,7 @@
       }
     },
     {
-      "text": "More Main Street. People Bustling. \n\n#{inventory_has shiny_stone}\nA woman admires your shiny stone!\n#{/inventory_has}\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---",
+      "text": "More Main Street. People Bustling. \n\nYour Shiny Stone has been stolen!\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "East",
@@ -169,15 +174,15 @@
           "pid": "6"
         }
       ],
-      "name": "Region 1 - Main Street 2",
+      "name": "Region 1 - Main Street 2 Stone Stolen",
       "pid": "9",
       "position": {
-        "x": "350",
-        "y": "375"
+        "x": "400",
+        "y": "500"
       }
     },
     {
-      "text": "Main Street is over. You lost your shiny stone.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West->Region 1 - Main Street 2]]\n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "text": "Main Street is over. You lost your shiny stone.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West(!)||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[West(-)||!has shiny_stone->Region 1 - Main Street 2 No Stone]]\n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "South",
@@ -185,15 +190,20 @@
           "pid": "11"
         },
         {
-          "name": "West",
-          "link": "Region 1 - Main Street 2",
+          "name": "West(!)||has shiny_stone",
+          "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
+        },
+        {
+          "name": "West(-)||!has shiny_stone",
+          "link": "Region 1 - Main Street 2 No Stone",
+          "pid": "19"
         }
       ],
       "name": "Region 1 - Main Street 3",
       "pid": "10",
       "position": {
-        "x": "475",
+        "x": "600",
         "y": "375"
       }
     },
@@ -214,7 +224,7 @@
       "name": "Region 1 - Dirt Road 1",
       "pid": "11",
       "position": {
-        "x": "475",
+        "x": "600",
         "y": "500"
       }
     },
@@ -235,7 +245,7 @@
       "name": "Region 1 - Dirt Road 2",
       "pid": "12",
       "position": {
-        "x": "475",
+        "x": "600",
         "y": "625"
       }
     },
@@ -309,7 +319,7 @@
       "name": "Region 1 - Exit",
       "pid": "16",
       "position": {
-        "x": "475",
+        "x": "600",
         "y": "750"
       }
     },
@@ -330,7 +340,7 @@
       "name": "Region 2 - Start",
       "pid": "17",
       "position": {
-        "x": "700",
+        "x": "825",
         "y": "750"
       }
     },
@@ -346,8 +356,29 @@
       "name": "Region 2 - Crashed Ship",
       "pid": "18",
       "position": {
-        "x": "825",
+        "x": "950",
         "y": "750"
+      }
+    },
+    {
+      "text": "More Main Street. People Bustling. \n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] ",
+      "links": [
+        {
+          "name": "East",
+          "link": "Region 1 - Main Street 3",
+          "pid": "10"
+        },
+        {
+          "name": "West",
+          "link": "Region 1 - Main Street 1",
+          "pid": "6"
+        }
+      ],
+      "name": "Region 1 - Main Street 2 No Stone",
+      "pid": "19",
+      "position": {
+        "x": "400",
+        "y": "375"
       }
     }
   ],
