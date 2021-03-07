@@ -1174,9 +1174,9 @@
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
 "@esaevian/genmo-v2@^2.2.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@esaevian/genmo-v2/-/genmo-v2-2.2.1.tgz#8233db45375f3ae21f34ed91b2407bba5bf8e11f"
-  integrity sha512-Hf6zWaVf1qeJlUIm29fXhSVadfS/nFZGax5RhciImOi5k74qFcqHwaRdt1qpRqB8eMXaixbAqgmmiEOyG2poxA==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@esaevian/genmo-v2/-/genmo-v2-2.2.2.tgz#acce4ae5401a59c59dc4468f6b43fe5863e1f20f"
+  integrity sha512-x6bya/sJBAJlsqsZ0ZTsu2y3IjE5yLGAVDfOZvHCzeSmUszrNVp7DBUUYu6EoXxGE2XzmjXCN8LMCbz+N5iW/g==
   dependencies:
     handlebars "^4.7.7"
   optionalDependencies:
