@@ -1,6 +1,6 @@
 import { Grid, Button, makeStyles } from "@material-ui/core";
 import React from "react";
-import { useKeyPressAction } from "../hooks/useKeyPressAction";
+import { useKeyPressAction } from "../utils/useKeyPressAction";
 
 const useStyles = makeStyles((theme) => ({
   grid: {
