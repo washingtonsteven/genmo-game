@@ -16,12 +16,6 @@ class MapNode {
   }
 }
 
-const getMapNode = (map, pid) =>
-  Boolean(map.find((n) => n.passage.pid === pid));
-
-const mapContainsPid = (map, pid) => Boolean(getMapNode);
-
-const getMapStart = (map) => map.find((n) => n.gridX === 0 && n.gridY === 0);
 class Map {
   constructor() {
     this.map = [];
