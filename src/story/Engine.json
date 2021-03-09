@@ -35,7 +35,7 @@
       }
     },
     {
-      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
+      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n\t\"region_nomap\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "To Region 1",
@@ -161,7 +161,7 @@
       }
     },
     {
-      "text": "More Main Street. People Bustling. \n\nYour Shiny Stone has been stolen!\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "text": "More Main Street. People Bustling. \n\nYour Shiny Stone has been stolen!\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n  \"inventory_remove\":\"shiny_stone\",\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Main Street 2 No Stone\"\n  }\n}",
       "links": [
         {
           "name": "East",
@@ -250,7 +250,7 @@
       }
     },
     {
-      "text": "You chat with the barkeep. Her name is Macademia.\n\n---\n[[Name?->Region 1 - Barkeep's Name]]\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "text": "You chat with the barkeep. Her name is Macademia.\n\n---\n[[Name?->Region 1 - Barkeep's Name]]\n[[Get a Drink->Region 1 - Get a Drink]]\n---\n{\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Name?",
@@ -271,7 +271,7 @@
       }
     },
     {
-      "text": "She admits its weird. Her parents were weird.\n\n---\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "text": "She admits its weird. Her parents were weird.\n\n---\n[[Get a Drink->Region 1 - Get a Drink]]\n---\n{\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Get a Drink",
@@ -287,7 +287,7 @@
       }
     },
     {
-      "text": "You get a drink. It's pretty good\n\n---\n[[Continue->Region 1 - Bar]] \n---\n{\n\"drunkeness\": \"++1\",\n\"money\": \"--7\"\n}",
+      "text": "You get a drink. It's pretty good\n\n---\n[[Continue->Region 1 - Bar]] \n---\n{\n  \"drunkeness\": \"++1\",\n  \"money\": \"--7\",\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Continue",

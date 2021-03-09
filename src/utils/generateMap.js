@@ -24,12 +24,12 @@ class Map {
     this.map.push(node);
   }
   concatMap(otherMap) {
-    this.map = map.contact(otherMap);
+    this.map = this.map.contact(otherMap);
   }
   getMapNode(pid) {
     return this.map.find((node) => node.passage.pid === pid);
   }
-  mapContains(pid) {
+  containsNode(pid) {
     return Boolean(this.getMapNode(pid));
   }
   getMapStart() {
@@ -47,8 +47,8 @@ class LineNode {
   }
   containsNode(node) {
     return (
-      n.passage.pid === this.start.passage.pid ||
-      n.passage.pid === this.end.passage.pid
+      node.passage.pid === this.start.passage.pid ||
+      node.passage.pid === this.end.passage.pid
     );
   }
   hasNodes(...nodes) {
@@ -74,7 +74,7 @@ class LineList {
     this.lines.push(line);
   }
   lineExists(nodeA, nodeB) {
-    return Boolean(lines.find((line) => line.hasNodes(nodeA, nodeB)));
+    return Boolean(this.lines.find((line) => line.hasNodes(nodeA, nodeB)));
   }
   getLines() {
     return this.lines;
@@ -82,35 +82,45 @@ class LineList {
 }
 
 const iterateForMap = (
+  genmo,
   startingPassage,
   currentPassage,
   prevGridCoords = { x: 0, y: 0 },
   fromPosition = { x: 0, y: 0 },
   map
 ) => {
-  currentPassage = currentPassage || startingPassage;
+  currentPassage = genmo.getPassage(currentPassage || startingPassage);
+  const currentPassageData = genmo.getPassageData(currentPassage);
+
+  if (currentPassageData.grid_parent) {
+    currentPassage = genmo.getPassageByName(currentPassageData.grid_parent);
+  }
+
+  if (!currentPassage || (map && map.containsNode(currentPassage.pid)))
+    return map;
 
   if (startingPassage.pid === currentPassage.pid) {
-    from = currentPassage.position;
+    fromPosition = currentPassage.position;
   }
 
   const to = { x: prevGridCoords.x, y: prevGridCoords.y };
-  const xDiff = fromPosition.x - currentPassage.position.x;
+  const xDiff = currentPassage.position.x - fromPosition.x;
   to.x += xDiff === 0 ? 0 : xDiff / Math.abs(xDiff);
-  const yDiff = fromPosition.y - currentPassage.position.y;
+  const yDiff = currentPassage.position.y - fromPosition.y;
   to.y += yDiff === 0 ? 0 : yDiff / Math.abs(yDiff);
 
   if (!map) map = new Map();
-  map = map.addNode(new MapNode(currentPassage, to.x, to.y));
+  map.addNode(new MapNode(currentPassage, to.x, to.y));
 
   const isBoundary =
-    genmo.getPassageData(currentPassage).region_boundary &&
-    currentPassage.pid !== startingPassage;
+    currentPassageData.region_boundary &&
+    currentPassage.pid !== startingPassage.pid;
 
   if (!isBoundary) {
     currentPassage.links.forEach((link) => {
-      if (mapContainsPid(map, link.pid)) return;
+      if (map.containsNode(link.pid)) return;
       map = iterateForMap(
+        genmo,
         startingPassage,
         genmo.getPassage(link.pid),
         to,
@@ -119,30 +129,36 @@ const iterateForMap = (
       );
     });
   }
-
   return map;
 };
 
-const iterateForLines = (map, currentNode, fromNode, lines) => {
-  currentNode = map.getMapNode(currentNode.pid || currentNode);
+const iterateForLines = (genmo, map, currentNode, fromNode, lines) => {
+  currentNode = map.getMapNode(
+    currentNode.passage ? currentNode.passage.pid : currentNode.pid
+  );
   if (!currentNode) return;
+  const passageData = genmo.getPassageData(currentNode);
+  if (passageData.grid_parent) {
+    currentNode = map.getMapNode(
+      genmo.getPassageByName(passageData.grid_parent)
+    );
+  }
   if (!lines) lines = new LineList();
-  if (fromNode) lines = lines.addLine(new LineNode(fromNode, currentNode));
+  if (fromNode) lines.addLine(new LineNode(fromNode, currentNode));
 
   currentNode.passage.links.forEach((link) => {
-    const linkNode = map.getMapNode(link);
+    const linkNode = map.getMapNode(link.pid);
     if (!linkNode) return;
     const lineExists = lines.lineExists(currentNode, linkNode);
     if (lineExists) return;
-    lines = iterateForLines(map, link, currentNode, lines);
+    lines = iterateForLines(genmo, map, link, currentNode, lines);
   });
-
   return lines;
 };
 
 export const generateMap = (genmo, startingPassage) => {
-  const map = iterateForMap(genmo.getPassage(startingPassage));
-  const lines = iterateForLines(map, getMapStart(map));
+  const map = iterateForMap(genmo, genmo.getPassage(startingPassage));
+  const lines = iterateForLines(genmo, map, map.getMapStart());
 
   return { map, lines };
 };
