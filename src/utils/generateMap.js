@@ -16,6 +16,36 @@ class MapNode {
   }
 }
 
+const getMapNode = (map, pid) =>
+  Boolean(map.find((n) => n.passage.pid === pid));
+
+const mapContainsPid = (map, pid) => Boolean(getMapNode);
+
+const getMapStart = (map) => map.find((n) => n.gridX === 0 && n.gridY === 0);
+class Map {
+  constructor() {
+    this.map = [];
+  }
+  addNode(node) {
+    this.map.push(node);
+  }
+  concatMap(otherMap) {
+    this.map = map.contact(otherMap);
+  }
+  getMapNode(pid) {
+    return this.map.find((node) => node.passage.pid === pid);
+  }
+  mapContains(pid) {
+    return Boolean(this.getMapNode(pid));
+  }
+  getMapStart() {
+    return this.map.find((node) => node.gridX === 0 && node.gridY === 0);
+  }
+  getMapNodes() {
+    return this.map;
+  }
+}
+
 class LineNode {
   constructor(start, end) {
     this.start = start;
@@ -42,19 +72,27 @@ class LineNode {
   }
 }
 
-const getMapNode = (map, pid) =>
-  Boolean(map.find((n) => n.passage.pid === pid));
-
-const mapContainsPid = (map, pid) => Boolean(getMapNode);
-
-const getMapStart = (map) => map.find((n) => n.gridX === 0 && n.gridY === 0);
+class LineList {
+  constructor() {
+    this.lines = [];
+  }
+  addLine(line) {
+    this.lines.push(line);
+  }
+  lineExists(nodeA, nodeB) {
+    return Boolean(lines.find((line) => line.hasNodes(nodeA, nodeB)));
+  }
+  getLines() {
+    return this.lines;
+  }
+}
 
 const iterateForMap = (
   startingPassage,
   currentPassage,
   prevGridCoords = { x: 0, y: 0 },
   fromPosition = { x: 0, y: 0 },
-  map = []
+  map
 ) => {
   currentPassage = currentPassage || startingPassage;
 
@@ -68,10 +106,11 @@ const iterateForMap = (
   const yDiff = fromPosition.y - currentPassage.position.y;
   to.y += yDiff === 0 ? 0 : yDiff / Math.abs(yDiff);
 
-  map = map.concat(new MapNode(currentPassage, to.x, to.y));
+  if (!map) map = new Map();
+  map = map.addNode(new MapNode(currentPassage, to.x, to.y));
 
   const isBoundary =
-    genmo.getPassage(currentPassage).region_boundary &&
+    genmo.getPassageData(currentPassage).region_boundary &&
     currentPassage.pid !== startingPassage;
 
   if (!isBoundary) {
@@ -90,17 +129,16 @@ const iterateForMap = (
   return map;
 };
 
-const iterateForLines = (map, currentNode, fromNode, lines = []) => {
-  currentNode = getMapNode(map, currentNode.pid || currentNode);
+const iterateForLines = (map, currentNode, fromNode, lines) => {
+  currentNode = map.getMapNode(currentNode.pid || currentNode);
   if (!currentNode) return;
-  if (fromNode) lines = lines.concat(new LineNode(fromNode, currentNode));
+  if (!lines) lines = new LineList();
+  if (fromNode) lines = lines.addLine(new LineNode(fromNode, currentNode));
 
   currentNode.passage.links.forEach((link) => {
-    const linkNode = getMapNode(map, link);
+    const linkNode = map.getMapNode(link);
     if (!linkNode) return;
-    const lineExists = Boolean(
-      lines.find((line) => line.hasNodes(currentNode, linkNode))
-    );
+    const lineExists = lines.lineExists(currentNode, linkNode);
     if (lineExists) return;
     lines = iterateForLines(map, link, currentNode, lines);
   });
