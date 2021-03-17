@@ -1174,9 +1174,9 @@
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
 "@esaevian/genmo-v2@^2.2.0":
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/@esaevian/genmo-v2/-/genmo-v2-2.2.1.tgz#8233db45375f3ae21f34ed91b2407bba5bf8e11f"
-  integrity sha512-Hf6zWaVf1qeJlUIm29fXhSVadfS/nFZGax5RhciImOi5k74qFcqHwaRdt1qpRqB8eMXaixbAqgmmiEOyG2poxA==
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@esaevian/genmo-v2/-/genmo-v2-2.5.0.tgz#68c1aa5d93ef3e16ff1a4dde4d1c97e0834366e7"
+  integrity sha512-8rIMZmzTHd3JSvceneIO6UY0JdUpZzqAszuLsC0ZjqZ6YXHkCTKqiIaas3xxlXHVRRky01LdA7MWMH1b/l34uw==
   dependencies:
     handlebars "^4.7.7"
   optionalDependencies:
@@ -10900,9 +10900,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 uglify-js@^3.1.4:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.0.tgz#66ed69f7241f33f13531d3d51d5bcebf00df7f69"
-  integrity sha512-TWYSWa9T2pPN4DIJYbU9oAjQx+5qdV5RUDxwARg8fmJZrD/V27Zj0JngW5xg1DFz42G0uDYl2XhzF6alSzD62w==
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.13.1.tgz#2749d4b8b5b7d67460b4a418023ff73c3fefa60a"
+  integrity sha512-EWhx3fHy3M9JbaeTnO+rEqzCe1wtyQClv6q3YWq0voOj4E+bMZBErVS1GAHPDiRGONYq34M1/d8KuQMgvi6Gjw==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

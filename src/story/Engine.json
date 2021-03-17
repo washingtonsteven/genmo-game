@@ -35,7 +35,7 @@
       }
     },
     {
-      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
+      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n\t\"region_nomap\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "To Region 1",
@@ -93,7 +93,7 @@
       }
     },
     {
-      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[East||!has shiny_stone->Region 1 - Main Street 2 No Stone]] \n[[West->Region 1 - Start]] ",
+      "text": "Main street. Bar's up there.\n\n---\n[[North->Region 1 - Bar]]\n[[East->Region 1 - Main Street 2 Stone Stolen]]\n[[West->Region 1 - Start]] ",
       "links": [
         {
           "name": "North",
@@ -101,14 +101,9 @@
           "pid": "8"
         },
         {
-          "name": "East||has shiny_stone",
+          "name": "East",
           "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
-        },
-        {
-          "name": "East||!has shiny_stone",
-          "link": "Region 1 - Main Street 2 No Stone",
-          "pid": "19"
         },
         {
           "name": "West",
@@ -161,7 +156,7 @@
       }
     },
     {
-      "text": "More Main Street. People Bustling. \n\nYour Shiny Stone has been stolen!\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n\"inventory_remove\":\"shiny_stone\"\n}",
+      "text": "More Main Street. People Bustling. \n\n{{#changed inventory=\"shiny_stone\"}}Your Shiny Stone has been stolen!{{/changed}}\n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] \n---\n{\n  \"inventory_remove\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "East",
@@ -178,11 +173,11 @@
       "pid": "9",
       "position": {
         "x": "400",
-        "y": "500"
+        "y": "375"
       }
     },
     {
-      "text": "Main Street is over.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West||has shiny_stone->Region 1 - Main Street 2 Stone Stolen]]\n[[West||!has shiny_stone->Region 1 - Main Street 2 No Stone]]\n",
+      "text": "Main Street is over.\n\n---\n[[South->Region 1 - Dirt Road 1]]\n[[West->Region 1 - Main Street 2 Stone Stolen]]\n",
       "links": [
         {
           "name": "South",
@@ -190,14 +185,9 @@
           "pid": "11"
         },
         {
-          "name": "West||has shiny_stone",
+          "name": "West",
           "link": "Region 1 - Main Street 2 Stone Stolen",
           "pid": "9"
-        },
-        {
-          "name": "West||!has shiny_stone",
-          "link": "Region 1 - Main Street 2 No Stone",
-          "pid": "19"
         }
       ],
       "name": "Region 1 - Main Street 3",
@@ -250,7 +240,7 @@
       }
     },
     {
-      "text": "You chat with the barkeep. Her name is Macademia.\n\n---\n[[Name?->Region 1 - Barkeep's Name]]\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "text": "You chat with the barkeep. Her name is Macademia.\n\n---\n[[Name?->Region 1 - Barkeep's Name]]\n[[Get a Drink->Region 1 - Get a Drink]]\n---\n{\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Name?",
@@ -271,7 +261,7 @@
       }
     },
     {
-      "text": "She admits its weird. Her parents were weird.\n\n---\n[[Get a Drink->Region 1 - Get a Drink]]",
+      "text": "She admits its weird. Her parents were weird.\n\n---\n[[Get a Drink->Region 1 - Get a Drink]]\n---\n{\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Get a Drink",
@@ -287,7 +277,7 @@
       }
     },
     {
-      "text": "You get a drink. It's pretty good\n\n---\n[[Continue->Region 1 - Bar]] \n---\n{\n\"drunkeness\": \"++1\",\n\"money\": \"--7\"\n}",
+      "text": "You get a drink. It's pretty good\n\n---\n[[Continue->Region 1 - Bar]] \n---\n{\n  \"drunkeness\": \"++1\",\n  \"money\": \"--7\",\n  \"passage_data\": {\n    \"grid_parent\": \"Region 1 - Bar\"\n  }\n}",
       "links": [
         {
           "name": "Continue",
@@ -358,27 +348,6 @@
       "position": {
         "x": "950",
         "y": "750"
-      }
-    },
-    {
-      "text": "More Main Street. People Bustling. \n\n---\n[[East->Region 1 - Main Street 3]]\n[[West->Region 1 - Main Street 1]] ",
-      "links": [
-        {
-          "name": "East",
-          "link": "Region 1 - Main Street 3",
-          "pid": "10"
-        },
-        {
-          "name": "West",
-          "link": "Region 1 - Main Street 1",
-          "pid": "6"
-        }
-      ],
-      "name": "Region 1 - Main Street 2 No Stone",
-      "pid": "19",
-      "position": {
-        "x": "400",
-        "y": "375"
       }
     }
   ],

@@ -34,26 +34,4 @@ export const GenmoGame = ({ currentPassage, followLink, genmo }) => {
       </Grid>
     </Container>
   );
-
-  // return (
-  //   <div>
-  //     <div className="text">{currentPassage.passageText}</div>
-  //     {currentPassage.links && (
-  //       <div className="links">
-  //         {currentPassage.links.map((link) => (
-  //           <button key={link.pid} onClick={linkClick(link)}>
-  //             {link.name}
-  //           </button>
-  //         ))}
-  //       </div>
-  //     )}
-  //     {genmo && (
-  //       <div className="state">
-  //         <pre>
-  //           <code>{JSON.stringify(genmo.state.data, null, 2)}</code>
-  //         </pre>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
 };
