@@ -7,9 +7,10 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
   },
   shortcut: {
+    ...theme.typography.caption,
     position: "absolute",
-    right: 5,
-    top: 1,
+    right: theme.spacing(0.625),
+    top: theme.spacing(0.125),
     fontSize: "0.6rem",
   },
 }));

@@ -11,11 +11,17 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   itemName: {
-    fontWeight: "bold",
+    ...theme.typography.h6,
+    fontSize: "1rem",
   },
 }));
 
+const itemLookup = {
+  shiny_stone: "Shiny Stone",
+};
+
 const inventoryFilter = ([item, quantity]) => quantity > 0;
+const itemName = (item) => itemLookup[item] || item;
 
 export const Inventory = ({ inventory = {} }) => {
   const classes = useStyles();
@@ -34,7 +40,9 @@ export const Inventory = ({ inventory = {} }) => {
             .filter(inventoryFilter)
             .map(([item, quantity]) => (
               <TableRow key={item}>
-                <TableCell className={classes.itemName}>{item}</TableCell>
+                <TableCell className={classes.itemName}>
+                  {itemName(item)}
+                </TableCell>
                 <TableCell>{quantity}</TableCell>
               </TableRow>
             ))}

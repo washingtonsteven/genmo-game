@@ -11,9 +11,15 @@ import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   statName: {
-    fontWeight: "bold",
+    ...theme.typography.h6,
+    fontSize: "1rem",
   },
 }));
+
+const statLookup = {
+  money: "Money",
+};
+const statName = (stat) => statLookup[stat] || stat;
 
 const getStats = (data) => {
   return Object.entries(data)
@@ -21,7 +27,7 @@ const getStats = (data) => {
       return !Boolean(["inventory", "passage_data"].find((k) => k === key));
     })
     .map(([key, value]) => {
-      return [key, value.toString()];
+      return [statName(key), value.toString()];
     });
 };
 

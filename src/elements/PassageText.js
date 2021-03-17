@@ -1,17 +1,28 @@
-import { Grid, makeStyles } from "@material-ui/core";
+import { Grid, makeStyles, Paper } from "@material-ui/core";
 import React from "react";
 
 const useStyles = makeStyles((theme) => ({
   passage: {
-    minHeight: "40vh",
+    minHeight: theme.spacing(40),
+  },
+  title: {
+    ...theme.typography.h5,
+    padding: theme.spacing(1),
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
   },
 }));
 
-export const PassageText = ({ passageText }) => {
+export const PassageText = ({ passage }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} className={classes.passage}>
-      {passageText}
-    </Grid>
+    <React.Fragment>
+      <Grid item xs={12}>
+        <Paper className={classes.title}>{passage.name}</Paper>
+      </Grid>
+      <Grid item xs={12} className={classes.passage}>
+        {passage.passageText}
+      </Grid>
+    </React.Fragment>
   );
 };
