@@ -32,31 +32,38 @@ const splitLinks = (links = []) => {
   return { directionalLinks, otherLinks };
 };
 
-const outputLink = (link, onClick, altText = "", customOpts = {}) => {
+// const outputLink = (link, onClick, altText = null, customOpts = {}) => {
+const outputLink = ({
+  link,
+  onClick,
+  altText,
+  shortcut,
+  buttonOverrides = {},
+}) => {
   const onClickFn = () => {
     typeof onClick === "function" && onClick(link);
   };
   const buttonOpts = {
     variant: "contained",
-    ...customOpts.buttonOpts,
+    ...buttonOverrides,
   };
-  const shortcut = customOpts.shortcut ? (
-    <div className={customOpts.shortcutClassName}>{customOpts.shortcut}</div>
+  const shortcutElem = shortcut ? (
+    <div className={shortcut.shortcutClassName}>{shortcut.text}</div>
   ) : (
     ""
   );
   if (link) {
     return (
       <Button onClick={onClickFn} {...buttonOpts}>
-        {link.name}
-        {shortcut}
+        {altText || link.name}
+        {shortcutElem}
       </Button>
     );
-  } else {
+  } else if (altText !== null) {
     return (
       <Button disabled {...buttonOpts}>
         {altText}
-        {shortcut}
+        {shortcutElem}
       </Button>
     );
   }
@@ -65,9 +72,8 @@ const outputLink = (link, onClick, altText = "", customOpts = {}) => {
 export const Links = ({ links, onLinkClicked }) => {
   const classes = useStyles();
   const { directionalLinks, otherLinks } = splitLinks(links);
-  const defaultDirectionalButtonOpts = {
-    buttonOpts: { color: "primary" },
-    shortcutClassName: classes.shortcut,
+  const defaultDirectionalButtonOverrides = {
+    color: "primary",
   };
 
   const doLinkClick = (link) => {
@@ -85,34 +91,36 @@ export const Links = ({ links, onLinkClicked }) => {
     }, {}),
   });
 
+  const outputDirectionalLink = (link, altText = null, shortcut) =>
+    outputLink({
+      link,
+      altText,
+      onClick: onLinkClicked,
+      buttonOverrides: {
+        ...defaultDirectionalButtonOverrides,
+      },
+      shortcut: {
+        text: shortcut,
+        shortcutClassName: classes.shortcut,
+      },
+    });
+
   return (
     <Grid item xs={12}>
       <Grid container className={classes.grid}>
         <Grid item xs={6}>
           <Grid container justify="center" alignItems="center" spacing={1}>
             <Grid item xs={12}>
-              {outputLink(directionalLinks.north, onLinkClicked, "North", {
-                ...defaultDirectionalButtonOpts,
-                shortcut: "W",
-              })}
+              {outputDirectionalLink(directionalLinks.north, "North", "W")}
             </Grid>
             <Grid item xs={4}>
-              {outputLink(directionalLinks.west, onLinkClicked, "West", {
-                ...defaultDirectionalButtonOpts,
-                shortcut: "A",
-              })}
+              {outputDirectionalLink(directionalLinks.west, "West", "A")}
             </Grid>
             <Grid item xs={4}>
-              {outputLink(directionalLinks.south, onLinkClicked, "South", {
-                ...defaultDirectionalButtonOpts,
-                shortcut: "S",
-              })}
+              {outputDirectionalLink(directionalLinks.south, "South", "S")}
             </Grid>
             <Grid item xs={4}>
-              {outputLink(directionalLinks.east, onLinkClicked, "East", {
-                ...defaultDirectionalButtonOpts,
-                shortcut: "D",
-              })}
+              {outputDirectionalLink(directionalLinks.east, "East", "D")}
             </Grid>
           </Grid>
         </Grid>
@@ -120,9 +128,13 @@ export const Links = ({ links, onLinkClicked }) => {
           <Grid container spacing={1}>
             {otherLinks.map((link, index) => (
               <Grid item xs={4} key={link.pid}>
-                {outputLink(link, onLinkClicked, null, {
-                  shortcutClassName: classes.shortcut,
-                  shortcut: index < 9 ? index + 1 : null,
+                {outputLink({
+                  link,
+                  onClick: onLinkClicked,
+                  shortcut: index < 9 && {
+                    text: index + 1,
+                    shortcutClassName: classes.shortcut,
+                  },
                 })}
               </Grid>
             ))}
