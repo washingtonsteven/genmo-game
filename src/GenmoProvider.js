@@ -17,6 +17,12 @@ export const GenmoProvider = (props) => {
       genmoRef.current.outputCurrentPassage();
     });
   };
+  const respondToPrompt = (response) => {
+    Object.entries(response).forEach(([key, value]) => {
+      genmoRef.current.respondToPrompt({ [key]: value });
+    });
+    genmoRef.current.outputCurrentPassage();
+  };
   useEffect(() => {
     if (genmoRef.current) {
       if (
@@ -35,6 +41,7 @@ export const GenmoProvider = (props) => {
     ...props,
     currentPassage,
     followLink,
+    respondToPrompt,
     genmo: genmoRef.current,
   };
   if (!genmoRef.current) {

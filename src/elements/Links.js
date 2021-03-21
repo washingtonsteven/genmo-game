@@ -5,6 +5,9 @@ import { useKeyPressAction } from "../utils/useKeyPressAction";
 const useStyles = makeStyles((theme) => ({
   grid: {
     textAlign: "center",
+    "& > *": {
+      marginTop: theme.spacing(1),
+    },
   },
   shortcut: {
     ...theme.typography.caption,
@@ -12,6 +15,9 @@ const useStyles = makeStyles((theme) => ({
     right: theme.spacing(0.625),
     top: theme.spacing(0.125),
     fontSize: "0.6rem",
+  },
+  button: {
+    maxWidth: "100%",
   },
 }));
 
@@ -62,7 +68,7 @@ const outputLink = ({
     );
   } else if (altText !== null) {
     return (
-      <Button disabled {...buttonOpts}>
+      <Button {...buttonOpts} disabled>
         {altText}
         {shortcutElem}
       </Button>
@@ -70,11 +76,12 @@ const outputLink = ({
   }
 };
 
-export const Links = ({ links, onLinkClicked }) => {
+export const Links = ({ links, onLinkClicked, disabled = false }) => {
   const classes = useStyles();
   const { directionalLinks, otherLinks } = splitLinks(links);
   const defaultDirectionalButtonOverrides = {
     color: "primary",
+    className: classes.button,
   };
 
   const doLinkClick = (link) => {
@@ -99,6 +106,7 @@ export const Links = ({ links, onLinkClicked }) => {
       onClick: onLinkClicked,
       buttonOverrides: {
         ...defaultDirectionalButtonOverrides,
+        disabled,
       },
       shortcut: {
         text: shortcut,
@@ -107,9 +115,9 @@ export const Links = ({ links, onLinkClicked }) => {
     });
 
   return (
-    <Grid item xs={12}>
+    <Grid item xs={12} style={{ flexGrow: 1 }}>
       <Grid container className={classes.grid}>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Grid container justify="center" alignItems="center" spacing={1}>
             <Grid item xs={12}>
               {outputDirectionalLink(directionalLinks.north, "North", "W")}
@@ -125,7 +133,7 @@ export const Links = ({ links, onLinkClicked }) => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Grid container spacing={1}>
             {otherLinks.map((link, index) => (
               <Grid item xs={4} key={link.pid}>
@@ -135,6 +143,10 @@ export const Links = ({ links, onLinkClicked }) => {
                   shortcut: index < 9 && {
                     text: index + 1,
                     shortcutClassName: classes.shortcut,
+                  },
+                  buttonOverrides: {
+                    disabled,
+                    className: classes.button,
                   },
                 })}
               </Grid>

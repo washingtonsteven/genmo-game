@@ -11,6 +11,7 @@ import { PassageText } from "./elements/PassageText";
 import { Links } from "./elements/Links";
 import { Stats } from "./elements/Stats";
 import { Inventory } from "./elements/Inventory";
+import { allPromptsResponded } from "./utils/promptFunctions";
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -24,7 +25,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const GenmoGame = ({ currentPassage, followLink, genmo }) => {
+export const GenmoGame = ({
+  currentPassage,
+  followLink,
+  respondToPrompt,
+  genmo,
+}) => {
   const classes = useStyles();
   return (
     <ThemeProvider theme={darkTheme}>
@@ -34,8 +40,15 @@ export const GenmoGame = ({ currentPassage, followLink, genmo }) => {
           {/* Left Side */}
           <Grid item xs={9}>
             <Grid container spacing={2}>
-              <PassageText passage={currentPassage} />
-              <Links links={currentPassage.links} onLinkClicked={followLink} />
+              <PassageText
+                passage={currentPassage}
+                onPromptResponded={respondToPrompt}
+              />
+              <Links
+                links={currentPassage.links}
+                onLinkClicked={followLink}
+                disabled={!allPromptsResponded(currentPassage)}
+              />
             </Grid>
           </Grid>
           {/* Right Side */}

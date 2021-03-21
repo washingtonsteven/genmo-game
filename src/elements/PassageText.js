@@ -1,5 +1,6 @@
 import { Grid, makeStyles, Paper } from "@material-ui/core";
 import React from "react";
+import { Prompt } from "./Prompt";
 
 const useStyles = makeStyles((theme) => ({
   passage: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const PassageText = ({ passage }) => {
+export const PassageText = ({ passage, onPromptResponded }) => {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -22,6 +23,7 @@ export const PassageText = ({ passage }) => {
       </Grid>
       <Grid item xs={12} className={classes.passage}>
         {passage.passageText}
+        <Prompt onPromptResponded={onPromptResponded} passage={passage} />
       </Grid>
     </React.Fragment>
   );

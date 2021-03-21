@@ -3,7 +3,7 @@
 {
   "passages": [
     {
-      "text": "You wake up in a place. There is a convenient person there to help you.\n---\n[[Next->Intro 2]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n    \"region_nomap\": true\n  }\n}",
+      "text": "You wake up in a place. There is a convenient person there to help you.\n\n{{#if player_name}}Hello {{player_name}}!{{/if}}\n---\n[[Next->Intro 2]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n    \"region_nomap\": true\n  },\n  \"player_name\": \">>\"\n}",
       "links": [
         {
           "name": "Next",
