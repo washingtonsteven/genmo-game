@@ -8,6 +8,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import React from "react";
+import { statName } from "../strings";
 
 const useStyles = makeStyles((theme) => ({
   statName: {
@@ -15,11 +16,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "1rem",
   },
 }));
-
-const statLookup = {
-  money: "Money",
-};
-const statName = (stat) => statLookup[stat] || stat;
 
 const getStats = (data) => {
   return Object.entries(data)

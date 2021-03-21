@@ -8,6 +8,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import React from "react";
+import { itemName } from "../strings";
 
 const useStyles = makeStyles((theme) => ({
   itemName: {
@@ -16,12 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const itemLookup = {
-  shiny_stone: "Shiny Stone",
-};
-
 const inventoryFilter = ([item, quantity]) => quantity > 0;
-const itemName = (item) => itemLookup[item] || item;
 
 export const Inventory = ({ inventory = {} }) => {
   const classes = useStyles();

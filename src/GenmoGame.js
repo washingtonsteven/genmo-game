@@ -38,7 +38,7 @@ export const GenmoGame = ({
         <CssBaseline />
         <Grid container spacing={2}>
           {/* Left Side */}
-          <Grid item xs={9}>
+          <Grid item xs={12} sm={7} lg={9}>
             <Grid container spacing={2}>
               <PassageText
                 passage={currentPassage}
@@ -52,7 +52,7 @@ export const GenmoGame = ({
             </Grid>
           </Grid>
           {/* Right Side */}
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={5} lg={3}>
             <Grid container spacing={2}>
               <Stats data={genmo.getData()} />
               <Inventory inventory={genmo.getInventory()} />

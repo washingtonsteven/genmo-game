@@ -4,6 +4,7 @@ import {
   allPromptsResponded,
   getNeededPrompts,
 } from "../utils/promptFunctions";
+import { statName } from "../strings";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -34,7 +35,7 @@ export const Prompt = ({ passage, onPromptResponded }) => {
             <TextField
               key={prompt.key}
               id={prompt.key}
-              label={prompt.key}
+              label={statName(prompt.key)}
               value={promptValues[prompt.key] || ""}
               onChange={(e) =>
                 setPromptValues({
