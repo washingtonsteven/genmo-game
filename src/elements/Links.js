@@ -20,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
   button: {
     maxWidth: "100%",
   },
+  otherLinks: {
+    "& button": {
+      width: "100%",
+      height: "100%",
+    },
+  },
 }));
 
 const directionals = ["north", "south", "east", "west"];
@@ -135,7 +141,7 @@ export const Links = ({ links, onLinkClicked, disabled = false }) => {
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
-          <Grid container spacing={1}>
+          <Grid container spacing={1} className={classes.otherLinks}>
             {otherLinks.map((link, index) => (
               <Grid item lg={3} md={4} sm={6} xs={12} key={link.pid}>
                 {outputLink({
