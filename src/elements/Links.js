@@ -6,7 +6,8 @@ const useStyles = makeStyles((theme) => ({
   grid: {
     textAlign: "center",
     "& > *": {
-      marginTop: theme.spacing(1),
+      marginBottom: theme.spacing(3),
+      padding: `0 ${theme.spacing(1)}px`,
     },
   },
   shortcut: {
@@ -115,28 +116,28 @@ export const Links = ({ links, onLinkClicked, disabled = false }) => {
     });
 
   return (
-    <Grid item xs={12} style={{ flexGrow: 1 }}>
+    <Grid item xs={12}>
       <Grid container className={classes.grid}>
         <Grid item xs={12} md={6}>
           <Grid container justify="center" alignItems="center" spacing={1}>
             <Grid item xs={12}>
               {outputDirectionalLink(directionalLinks.north, "North", "W")}
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={6}>
               {outputDirectionalLink(directionalLinks.west, "West", "A")}
             </Grid>
-            <Grid item xs={4}>
-              {outputDirectionalLink(directionalLinks.south, "South", "S")}
-            </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={6}>
               {outputDirectionalLink(directionalLinks.east, "East", "D")}
+            </Grid>
+            <Grid item xs={12}>
+              {outputDirectionalLink(directionalLinks.south, "South", "S")}
             </Grid>
           </Grid>
         </Grid>
         <Grid item xs={12} md={6}>
           <Grid container spacing={1}>
             {otherLinks.map((link, index) => (
-              <Grid item xs={4} key={link.pid}>
+              <Grid item lg={3} md={4} sm={6} xs={12} key={link.pid}>
                 {outputLink({
                   link,
                   onClick: onLinkClicked,

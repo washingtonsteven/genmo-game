@@ -1,21 +1,6 @@
-import {
-  Grid,
-  Table,
-  TableCell,
-  TableHead,
-  TableRow,
-  TableBody,
-  makeStyles,
-} from "@material-ui/core";
 import React from "react";
 import { statName } from "../strings";
-
-const useStyles = makeStyles((theme) => ({
-  statName: {
-    ...theme.typography.h6,
-    fontSize: "1rem",
-  },
-}));
+import { SidebarTable } from "./SidebarTable";
 
 const getStats = (data) => {
   return Object.entries(data)
@@ -28,27 +13,12 @@ const getStats = (data) => {
 };
 
 export const Stats = ({ data }) => {
-  const stats = getStats(data);
-  const classes = useStyles();
-
   return (
-    <Grid item xs={12}>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Name</TableCell>
-            <TableCell>Value</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {stats.map(([stat, value]) => (
-            <TableRow key={stat}>
-              <TableCell className={classes.statName}>{stat}</TableCell>
-              <TableCell>{value}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Grid>
+    <SidebarTable
+      data={getStats(data)}
+      aTitle="Name"
+      bTitle="Value"
+      tableTitle="Stats"
+    />
   );
 };

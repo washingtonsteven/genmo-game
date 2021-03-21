@@ -23,6 +23,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(3),
   },
+  sidebar: {
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
 }));
 
 export const GenmoGame = ({
@@ -53,7 +58,7 @@ export const GenmoGame = ({
           </Grid>
           {/* Right Side */}
           <Grid item xs={12} sm={5} lg={3}>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} className={classes.sidebar}>
               <Stats data={genmo.getData()} />
               <Inventory inventory={genmo.getInventory()} />
             </Grid>
