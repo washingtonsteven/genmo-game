@@ -4,7 +4,7 @@ import {
   allPromptsResponded,
   getNeededPrompts,
 } from "../utils/promptFunctions";
-import { statName } from "../strings";
+import { promptDefault, statName } from "../strings";
 
 const useStyles = makeStyles((theme) => ({
   formContainer: {
@@ -22,35 +22,50 @@ export const Prompt = ({ passage, onPromptResponded }) => {
   const classes = useStyles();
   if (allPromptsResponded(passage)) return null;
 
+  const doPromptResponse = () => {
+    const setValues = { ...promptValues };
+    getNeededPrompts(passage).forEach((prompt) => {
+      if (promptDefault(prompt.key)) {
+        setValues[prompt.key] = promptDefault(prompt.key);
+      }
+    });
+    onPromptResponded(setValues);
+  };
+
   return (
     <Paper className={classes.formContainer}>
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          onPromptResponded(promptValues);
+          doPromptResponse();
         }}
       >
         <div>
-          {getNeededPrompts(passage).map((prompt) => (
-            <TextField
-              key={prompt.key}
-              id={prompt.key}
-              label={statName(prompt.key)}
-              value={promptValues[prompt.key] || ""}
-              onChange={(e) =>
-                setPromptValues({
-                  ...promptValues,
-                  [prompt.key]: e.target.value,
-                })
-              }
-            />
-          ))}
+          {getNeededPrompts(passage).map((prompt) => {
+            return (
+              <TextField
+                key={prompt.key}
+                id={prompt.key}
+                label={statName(prompt.key)}
+                InputLabelProps={{ shrink: true }}
+                value={promptValues[prompt.key] || ""}
+                placeholder={promptDefault(prompt.key)}
+                variant="outlined"
+                onChange={(e) =>
+                  setPromptValues({
+                    ...promptValues,
+                    [prompt.key]: e.target.value,
+                  })
+                }
+              />
+            );
+          })}
         </div>
         <Button
           variant="contained"
           color="secondary"
           onClick={(e) => {
-            onPromptResponded(promptValues);
+            doPromptResponse();
           }}
         >
           Submit
