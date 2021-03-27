@@ -1,4 +1,4 @@
-import { Container, CssBaseline, Grid, makeStyles } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 import React from "react";
 import { PassageText } from "./elements/PassageText";
 import { Links } from "./elements/Links";
@@ -24,7 +24,6 @@ export const GenmoGame = ({
   const classes = useStyles();
   return (
     <Container maxWidth="lg" className={containerClasses.root}>
-      <CssBaseline />
       <Grid container spacing={2}>
         {/* Left Side */}
         <Grid item xs={12} sm={7} lg={9}>

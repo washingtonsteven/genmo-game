@@ -12,6 +12,7 @@ import {
   ThemeProvider,
   Toolbar,
   Typography,
+  CssBaseline,
 } from "@material-ui/core";
 import { Fragment, useState } from "react";
 import { ArrowBack } from "@material-ui/icons";
@@ -73,6 +74,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
       {selectedStory ? (
         <Fragment>
           <GenmoToolbar
