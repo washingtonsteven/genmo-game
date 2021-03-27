@@ -15,7 +15,7 @@
       "pid": "1",
       "position": {
         "x": "0",
-        "y": "100"
+        "y": "98"
       }
     },
     {
@@ -35,7 +35,7 @@
       }
     },
     {
-      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n\t\"region_nomap\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
+      "text": "This is the last of the intro, time to go to Region 1. You get a Shiny Stone.\n\n===\n{\n    \"component\": \"Baseline\",\n    \"data\": {\n        \"message\": \"Hello, {{player_name}}, from inside the house!\"\n\t}\n}\n===\n\nSome more text after that.\n---\n[[To Region 1->Region 1 - Start]]\n---\n{\n  \"passage_data\": {\n    \"region_boundary\": true,\n\t\"region_nomap\": true\n  },\n  \"money\":\"++10\",\n  \"inventory_add\":\"shiny_stone\"\n}",
       "links": [
         {
           "name": "To Region 1",
@@ -46,7 +46,7 @@
       "name": "Intro 3",
       "pid": "3",
       "position": {
-        "x": "250",
+        "x": "248",
         "y": "100"
       }
     },
@@ -73,7 +73,7 @@
       "pid": "4",
       "position": {
         "x": "100",
-        "y": "375"
+        "y": "373"
       }
     },
     {
@@ -89,7 +89,7 @@
       "pid": "5",
       "position": {
         "x": "100",
-        "y": "250"
+        "y": "243"
       }
     },
     {
@@ -115,7 +115,7 @@
       "pid": "6",
       "position": {
         "x": "225",
-        "y": "375"
+        "y": "376"
       }
     },
     {
@@ -151,7 +151,7 @@
       "name": "Region 1 - Bar",
       "pid": "8",
       "position": {
-        "x": "225",
+        "x": "226",
         "y": "250"
       }
     },
@@ -172,7 +172,7 @@
       "name": "Region 1 - Main Street 2 Stone Stolen",
       "pid": "9",
       "position": {
-        "x": "400",
+        "x": "405",
         "y": "375"
       }
     },

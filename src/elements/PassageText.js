@@ -1,7 +1,8 @@
 import { Grid, makeStyles, Paper } from "@material-ui/core";
-import React from "react";
+import React, { Fragment } from "react";
 import { Prompt } from "./Prompt";
 import ReactMarkdown from "react-markdown";
+import PassageComponents from "./PassageComponents";
 
 const useStyles = makeStyles((theme) => ({
   passage: {
@@ -15,8 +16,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const outputPassageText = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
-
+const outputPassageText = (textSrc) => {
+  const textParts = textSrc.split(/\n===(\n|$)/);
+  return (
+    <Fragment>
+      {textParts.map((text, i) => {
+        let jsonResult = null;
+        try {
+          jsonResult = JSON.parse(text);
+        } catch (e) {}
+        if (
+          jsonResult &&
+          jsonResult.component &&
+          PassageComponents[jsonResult.component]
+        ) {
+          const data = jsonResult.data || {};
+          const PassageComponent = PassageComponents[jsonResult.component];
+          return <PassageComponent {...data} key={i} />;
+        } else {
+          return <ReactMarkdown key={i}>{text}</ReactMarkdown>;
+        }
+      })}
+    </Fragment>
+  );
+};
 export const PassageText = ({ passage, onPromptResponded }) => {
   const classes = useStyles();
   return (
