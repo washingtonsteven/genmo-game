@@ -1,6 +1,7 @@
 import { Grid, makeStyles, Paper } from "@material-ui/core";
 import React from "react";
 import { Prompt } from "./Prompt";
+import ReactMarkdown from "react-markdown";
 
 const useStyles = makeStyles((theme) => ({
   passage: {
@@ -14,6 +15,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+const outputPassageText = (text) => <ReactMarkdown>{text}</ReactMarkdown>;
+
 export const PassageText = ({ passage, onPromptResponded }) => {
   const classes = useStyles();
   return (
@@ -22,7 +25,7 @@ export const PassageText = ({ passage, onPromptResponded }) => {
         <Paper className={classes.title}>{passage.name}</Paper>
       </Grid>
       <Grid item xs={12} className={classes.passage}>
-        {passage.passageText}
+        {outputPassageText(passage.passageText)}
         <Prompt onPromptResponded={onPromptResponded} passage={passage} />
       </Grid>
     </React.Fragment>
