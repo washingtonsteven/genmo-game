@@ -7,6 +7,9 @@ import PassageComponents from "./PassageComponents";
 const useStyles = makeStyles((theme) => ({
   passage: {
     minHeight: theme.spacing(40),
+    "& pre": {
+      whiteSpace: "pre-line",
+    },
   },
   title: {
     ...theme.typography.h5,
