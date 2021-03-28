@@ -1,13 +1,18 @@
 import { Genmo } from "@esaevian/genmo-v2";
+import { makeStyles } from "@material-ui/core";
 import { useEffect, useState, useRef, cloneElement } from "react";
+import { getHelpers, helperStyles } from "./utils/helpers";
 
 const emptyPassage = {
   passageText: "No Passage Loaded",
 };
 
+const useHelperStyles = makeStyles(helperStyles);
+
 export const GenmoProvider = (props) => {
   const [currentPassage, setCurrentPassage] = useState(emptyPassage);
   const genmoRef = useRef();
+  const helperClasses = useHelperStyles();
   const followLink = (link) => {
     if (!genmoRef.current) {
       console.error("No genmoref!");
@@ -34,9 +39,22 @@ export const GenmoProvider = (props) => {
     }
     genmoRef.current = new Genmo(props.storyData, {
       outputFunction: setCurrentPassage,
+      customHelpers: {
+        bold: (handlebarsOptions, { genmo }) =>
+          `<strong>${handlebarsOptions.fn(genmo.getData())}</strong>`,
+      },
     });
+    // debug
+    (window || {}).genmo = genmoRef.current;
     setCurrentPassage(genmoRef.current.getCurrentPassage());
   }, [props.storyData]);
+  useEffect(() => {
+    if (!genmoRef.current) return;
+    const helpers = getHelpers(helperClasses);
+    Object.entries(helpers).forEach(([helperName, helperFn]) => {
+      genmoRef.current.addHelper(helperName, helperFn);
+    });
+  }, [helperClasses]);
   const allProps = {
     ...props,
     currentPassage,

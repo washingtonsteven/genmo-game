@@ -1,5 +1,3 @@
-
-
 {
   "passages": [
     {
@@ -15,7 +13,7 @@
       "pid": "1",
       "position": {
         "x": "200",
-        "y": "200"
+        "y": "201"
       }
     },
     {
@@ -35,7 +33,7 @@
       }
     },
     {
-      "text": "```chat\n**{{username}}**: Hey I need some help with a thing.\n\n**{{username}}**: I'm trying to access `getSubviewId` like it says in the docs, but I'm getting an error: `getSubviewId is not a property of LambdaDash.MainView`\n\n**{{username}}**: Are the docs out of date or something?\n```\n\nAfter 30 seconds of no response, they get up, tossing their laptop to bounce on the couch cushions, and head for the kitchen to refill their bowl of cheese puffs. Their hands are shaky, fumbling the container while yawning. A muffled ***ping!*** rings out from the couch mid puff pour. Hastily putting everything away, they hop back onto the couch, and check out the message.\n\n---\n\n[[(1) Message->Message with fc_mindMap]]\n",
+      "text": "{{#chat}}\n{{username}}: Hey I need some help with a thing.\n\n{{username}}: I'm trying to access `getSubviewId` like it says in the docs, but I'm getting an error: `getSubviewId is not a property of LambdaDash.MainView`\n\n{{username}}: Are the docs out of date or something?\n{{/chat}}\n\nAfter 30 seconds of no response, they get up, tossing their laptop to bounce on the couch cushions, and head for the kitchen to refill their bowl of cheese puffs. Their hands are shaky, fumbling the container while yawning. A muffled ***ping!*** rings out from the couch mid puff pour. Hastily putting everything away, they hop back onto the couch, and check out the message.\n\n---\n\n[[(1) Message->Message with fc_mindMap]]\n",
       "links": [
         {
           "name": "(1) Message",
@@ -51,7 +49,7 @@
       }
     },
     {
-      "text": "```chat\n**fc_mindMap**:\n\n‽‽‽‽çNiu■■■■■■■■■▉▉▉▉▉▉\n\n⊕►►₱e⁑mi⁑ssion is ç.ÃvÏ\u000f!ÿ granted, \"#S\u0012\u0012(∂\u0017ºÖCo\u0011Ñ–P~ì»ã≈\u0012\u0019√…⊕▲ÃèN7\u0005ﬁàGqS\u0006£\u0011™àéÍÎòK6\n⊕◀Ö>e\bı†ø„Ó|ùõkÄ\u0015\tæsq\u0012√•Ìä,¡\u0017«Zîp\u0011A∂nÁ\u0010t»Bò”°\b$$3¡Å…{^åÿ’,gÀk?∑ªNÄ\n⊕▲▲4KÆ†ƒ\u0012$¥À¸Ë7à#\u000fvÒ2ô\u000590a∑≈È5\u0017p\"ŒÁ&≤˚`¿éö¶\tRıKÙ\u0015}±◊“-yj|m \"Software\"), to deal ⊕◀in the •\u0002ßi‘▉▉▉▉▉▉]!¸XO\u0014ø~TXC\bh■■■■W\u0019÷≤√yDà\n⊕▲%^O\u0018úﬁ…ç¶¥|˚†…{V-§Qﬁ\u0007•∏ßÿcíöªNYÍÊ™WJ ÉÇ\u000fï‘í merge PROVIDED ■■■IS\", /⊕¯ùsõÃ\u0005•&äº÷n‰˙M˘è\u001cê?AÀAV8\u0003Ùô.\u0013>#ëHùl ò›õ¥§†˘Ωæoá\u000fÁ‡@+È€A\u0007îc\t⊕Ç®yÇ\u001e‰ÂÕeYÄ°√ôa‹\u0017◊ÌëE\u0006\u001e\u0010;¸\n⊕ö±x.\u0014h˝%U5^o€◊8_èOØµ≥≤æFó\u0017zï$¿íhuimÏéj©œhü¶\u0012.àwN\u0016#ø\u0007™óŒvÃÊÅÿí˛R—⊕ƒ”a■■■■■■■■■ÄxáJ^Z≈\u0013TW´ª¸.È¢MÂODX,ˆ7èx&^\u001c°\t\u0018T⁄\n⊕œ∆≥¡\u0011@í»V\u001ac◊æ\n\n**System**: 'fc_mindMap' would like to send 'directions.license' Do you accept?\n```\n\n{{!-- directions are in the file, the arrows next to the crosses. right right up left up up left up --}}\n\n---\n\n[[Yes->Message with fc_mindMap: directions.license transferred]]\n[[No->Message with fc_mindMap: directions.license rejected]]",
+      "text": "{{#chat}}\nfc_mindMap: \n\n‽‽‽‽çNiu■■■■■■■■■▉▉▉▉▉▉\n\n⊕►►₱e⁑mi⁑ssion is ç.ÃvÏ\u000f!ÿ granted, \"#S\u0012\u0012(∂\u0017ºÖCo\u0011Ñ–P~ì»ã≈\u0012\u0019√…⊕▲ÃèN7\u0005ﬁàGqS\u0006£\u0011™àéÍÎòK6\n⊕◀Ö>e\bı†ø„Ó|ùõkÄ\u0015\tæsq\u0012√•Ìä,¡\u0017«Zîp\u0011A∂nÁ\u0010t»Bò”°\b$$3¡Å…{^åÿ’,gÀk?∑ªNÄ\n⊕▲▲4KÆ†ƒ\u0012$¥À¸Ë7à#\u000fvÒ2ô\u000590a∑≈È5\u0017p\"ŒÁ&≤˚`¿éö¶\tRıKÙ\u0015}±◊“-yj|m \"Software\"), to deal ⊕◀in the •\u0002ßi‘▉▉▉▉▉▉]!¸XO\u0014ø~TXC\bh■■■■W\u0019÷≤√yDà\n⊕▲%^O\u0018úﬁ…ç¶¥|˚†…{V-§Qﬁ\u0007•∏ßÿcíöªNYÍÊ™WJ ÉÇ\u000fï‘í merge PROVIDED ■■■IS\", /⊕¯ùsõÃ\u0005•&äº÷n‰˙M˘è\u001cê?AÀAV8\u0003Ùô.\u0013>#ëHùl ò›õ¥§†˘Ωæoá\u000fÁ‡@+È€A\u0007îc\t⊕Ç®yÇ\u001e‰ÂÕeYÄ°√ôa‹\u0017◊ÌëE\u0006\u001e\u0010;¸\n⊕ö±x.\u0014h˝%U5^o€◊8_èOØµ≥≤æFó\u0017zï$¿íhuimÏéj©œhü¶\u0012.àwN\u0016#ø\u0007™óŒvÃÊÅÿí˛R—⊕ƒ”a■■■■■■■■■ÄxáJ^Z≈\u0013TW´ª¸.È¢MÂODX,ˆ7èx&^\u001c°\t\u0018T⁄\n⊕œ∆≥¡\u0011@í»V\u001ac◊æ\n\nSystem: 'fc_mindMap' would like to send 'directions.license' Do you accept?\n{{/chat}}\n\n{{!-- directions are in the file, the arrows next to the crosses. right right up left up up left up --}}\n\n---\n\n[[Yes->Message with fc_mindMap: directions.license transferred]]\n[[No->Message with fc_mindMap: directions.license rejected]]",
       "links": [
         {
           "name": "Yes",
@@ -72,7 +70,7 @@
       }
     },
     {
-      "text": "```chat\n**System**: directions.license saved to ~/Downloads\n```\n\n{{#inventory_add items=\"directions_license_file\"}}{{/inventory_add}}\n\n---\n\n[[Sleeping Town]] ",
+      "text": "{{#chat}}\nSystem: directions.license saved to ~/Downloads\n{{/chat}}\n\n{{#inventory_add items=\"directions_license_file\"}}{{/inventory_add}}\n\n---\n\n[[Sleeping Town]] ",
       "links": [
         {
           "name": "Sleeping Town",
@@ -88,7 +86,7 @@
       }
     },
     {
-      "text": "```chat\n**System**: directions.license rejected\n```\n\n---\n\n[[Sleeping Town]] ",
+      "text": "{{#chat}}\nSystem: directions.license rejected\n{{/chat}}\n\n---\n\n[[Sleeping Town]] ",
       "links": [
         {
           "name": "Sleeping Town",
@@ -107,7 +105,6 @@
   "name": "Bunker",
   "startnode": "1",
   "creator": "Twine",
-  "creator-version": "2.3.8",
+  "creator-version": "2.2.1",
   "ifid": "7F9A6884-313A-4E9A-AB6E-7FAB9CDBA253"
 }
-

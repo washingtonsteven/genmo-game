@@ -10,6 +10,14 @@ const useStyles = makeStyles((theme) => ({
     "& pre": {
       whiteSpace: "pre-line",
     },
+    "& code": {
+      background: theme.palette.background.paper,
+      border: `solid 1px ${theme.palette.grey["600"]}`,
+      borderRadius: theme.shape.borderRadius,
+      padding: `0 ${theme.spacing(0.7)}px`,
+      color: theme.palette.info.light,
+      fontFamily: "Roboto Mono, monospace",
+    },
   },
   title: {
     ...theme.typography.h5,
@@ -37,7 +45,11 @@ const outputPassageText = (textSrc) => {
           const PassageComponent = PassageComponents[jsonResult.component];
           return <PassageComponent {...data} key={i} />;
         } else {
-          return <ReactMarkdown key={i}>{text}</ReactMarkdown>;
+          return (
+            <ReactMarkdown key={i} allowDangerousHtml={true}>
+              {text}
+            </ReactMarkdown>
+          );
         }
       })}
     </Fragment>
