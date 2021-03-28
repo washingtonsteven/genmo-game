@@ -39,10 +39,6 @@ export const GenmoProvider = (props) => {
     }
     genmoRef.current = new Genmo(props.storyData, {
       outputFunction: setCurrentPassage,
-      customHelpers: {
-        bold: (handlebarsOptions, { genmo }) =>
-          `<strong>${handlebarsOptions.fn(genmo.getData())}</strong>`,
-      },
     });
     // debug
     (window || {}).genmo = genmoRef.current;
