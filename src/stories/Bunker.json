@@ -70,14 +70,7 @@
       }
     },
     {
-      "text": "{{#chat}}\nSystem: directions.license saved to ~/Downloads\n{{/chat}}\n\n{{#inventory_add items=\"directions_license_file\"}}{{/inventory_add}}\n\n---\n\n[[Sleeping Town]] ",
-      "links": [
-        {
-          "name": "Sleeping Town",
-          "link": "Sleeping Town",
-          "pid": "1"
-        }
-      ],
+      "text": "{{#chat}}\nSystem: directions.license saved to ~/Downloads\n{{/chat}}\n\n{{#inventory_add items=\"directions_license_file\"}}{{/inventory_add}}\n",
       "name": "Message with fc_mindMap: directions.license transferred",
       "pid": "5",
       "position": {
@@ -86,14 +79,7 @@
       }
     },
     {
-      "text": "{{#chat}}\nSystem: directions.license rejected\n{{/chat}}\n\n---\n\n[[Sleeping Town]] ",
-      "links": [
-        {
-          "name": "Sleeping Town",
-          "link": "Sleeping Town",
-          "pid": "1"
-        }
-      ],
+      "text": "{{#chat}}\nSystem: directions.license rejected\n{{/chat}}\n\n",
       "name": "Message with fc_mindMap: directions.license rejected",
       "pid": "6",
       "position": {
