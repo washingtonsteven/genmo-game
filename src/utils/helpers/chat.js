@@ -11,8 +11,9 @@ export const chatStyle = (theme) => ({
     borderRadius: theme.shape.borderRadius,
     margin: `${theme.spacing(1)}px 0 ${theme.spacing(4)}px`,
     boxShadow: theme.shadows["3"],
+    border: `solid 1px ${theme.palette.text.hint}`,
     "& code": {
-      background: theme.palette.background.default,
+      background: `${theme.palette.background.default} !important`,
     },
     "& strong": {
       fontWeight: theme.typography.fontWeightBold,
@@ -22,6 +23,8 @@ export const chatStyle = (theme) => ({
         color: theme.palette.info.light,
         "&+span": {
           fontFamily: "Roboto Mono, monospace",
+          fontStyle: "italic",
+          color: theme.palette.text.hint,
         },
       },
     },

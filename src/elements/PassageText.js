@@ -14,9 +14,11 @@ const useStyles = makeStyles((theme) => ({
       background: theme.palette.background.paper,
       border: `solid 1px ${theme.palette.grey["600"]}`,
       borderRadius: theme.shape.borderRadius,
-      padding: `0 ${theme.spacing(0.7)}px`,
+      padding: `0 ${theme.spacing(0.7)}px ${theme.spacing(0.3)}px`,
       color: theme.palette.info.light,
       fontFamily: "Roboto Mono, monospace",
+      display: "inline-block",
+      marginBottom: theme.spacing(0.25),
     },
   },
   title: {
@@ -24,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(1),
     backgroundColor: theme.palette.background.paper,
     color: theme.palette.text.primary,
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    overflow: "hidden",
   },
 }));
 
@@ -60,7 +65,9 @@ export const PassageText = ({ passage, onPromptResponded }) => {
   return (
     <React.Fragment>
       <Grid item xs={12}>
-        <Paper className={classes.title}>{passage.name}</Paper>
+        <Paper className={classes.title} title={passage.name}>
+          {passage.name}
+        </Paper>
       </Grid>
       <Grid item xs={12} className={classes.passage}>
         {outputPassageText(passage.passageText)}

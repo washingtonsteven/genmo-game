@@ -51,6 +51,9 @@ export const GenmoProvider = (props) => {
       genmoRef.current.addHelper(helperName, helperFn);
     });
   }, [helperClasses]);
+  useEffect(() => {
+    (document || {}).title = `${props.storyData.name}: ${currentPassage.name}`;
+  }, [currentPassage, props.storyData]);
   const allProps = {
     ...props,
     currentPassage,
