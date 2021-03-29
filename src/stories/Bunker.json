@@ -1,12 +1,17 @@
 {
   "passages": [
     {
-      "text": "The town is quiet, streetlights hum, illuminating an empty street, except for the shadow of a waddling raccoon, slipping into an alley behind the restaurant for a midnight snack.\n\nThe town center quickly gives way to residential homes, all dark with sleeping cars in driveways. The occasional flicker of an unattended TV set shines through thin curtains.\n\nIn the second story of one of these houses, a bright yellow light spills from a window into the darkness outside, which was thick enough to prevent said light from reaching the sidewalk. \n\nInside, a computer clock flips over to 2:00AM, the room silent except for the crunching of tortilla chips, and frantic clicks and clacks of the keyboard.\n\n---\n\n[[Next->Living Room]]",
+      "text": "The town is quiet, streetlights hum, illuminating an empty street, except for the shadow of a waddling raccoon, slipping into an alley behind the restaurant for a midnight snack.\n\nThe town center quickly gives way to residential homes, all dark with sleeping cars in driveways. The occasional flicker of an unattended TV set shines through thin curtains.\n\nIn the second story of one of these houses, a bright yellow light spills from a window into the darkness outside, which was thick enough to prevent said light from reaching the sidewalk. \n\nInside, a computer clock flips over to 2:00AM, the room silent except for the crunching of tortilla chips, and frantic clicks and clacks of the keyboard.\n\n---\n\n[[Next->Living Room]]\n\n[[Begin]]",
       "links": [
         {
           "name": "Next",
           "link": "Living Room",
           "pid": "2"
+        },
+        {
+          "name": "Begin",
+          "link": "Begin",
+          "pid": "7"
         }
       ],
       "name": "Sleeping Town",
@@ -86,10 +91,121 @@
         "x": "725",
         "y": "350"
       }
+    },
+    {
+      "text": "A late twenty-something shuts their laptop. It's 5:11pm, time to shut off the capitalism screen and turn on the whatever else screen.\n\nThey slide their phone out of their pocket, tapping through idle screens as they make their way to the couch in the same room, the television coming to life as they land on the cushions.\n\nOn the coffee table sit some crumbs and junk mail.\n\n{{#if name}}The mail is addressed to one {{name}}\n{{else}}**Who is the mail addressed to?**{{/if}}\n{{#data_set name=\">>\"}}{{/data_set}}\n\n---\n\n[[Next->Mail]]\n",
+      "links": [
+        {
+          "name": "Next",
+          "link": "Mail",
+          "pid": "8"
+        }
+      ],
+      "name": "Begin",
+      "pid": "7",
+      "position": {
+        "x": "200",
+        "y": "350"
+      }
+    },
+    {
+      "text": "Ugh. It's all credit card offers and schools asking for a \"gift.\" \n\nTheir phone buzzes, a reminder to drop off the muffins they made earlier for Kat, along with the rest of the \"get well soon\" package. After a few seconds to rest, they hop off the couch to get to work. \n\nThey change out of their work \"outfit\" (athletic shorts and a tank top they've been wearing since yesterday), fill a tupperware with now-cooled muffins from the rack (saving some of the burnt and less-pretty ones for themselves), and grab a gift bag full of goodies. After checking that they have everything, including the essential \"wallet, keys, phone\"-check, they slam the door to their apartment behind them, and head out into the late-afternoon sun.\n\nThey squint a bit as they step onto the sidewalk. Muttering to themselves, \"Where was her place, again?\"\n\nDo they wander around, trying to remember? Or look up the address on their phone?\n\n---\n[[Wander->Begin Wandering to Kat's]]\n[[Use GPS->Open GPS App to get to Kat's]]",
+      "links": [
+        {
+          "name": "Wander",
+          "link": "Begin Wandering to Kat's",
+          "pid": "9"
+        },
+        {
+          "name": "Use GPS",
+          "link": "Open GPS App to get to Kat's",
+          "pid": "10"
+        }
+      ],
+      "name": "Mail",
+      "pid": "8",
+      "position": {
+        "x": "200",
+        "y": "500"
+      }
+    },
+    {
+      "text": "{{#data_set usingGPS=false}}{{/data_set}}\n\n{{firstname}} decides to try random directions until they find something familiar.\n\n---\n\n[[Next->Magnolia Avenue, 300 block]] ",
+      "links": [
+        {
+          "name": "Next",
+          "link": "Magnolia Avenue, 300 block",
+          "pid": "11"
+        }
+      ],
+      "name": "Begin Wandering to Kat's",
+      "pid": "9",
+      "position": {
+        "x": "125",
+        "y": "650"
+      }
+    },
+    {
+      "text": "{{#data_set usingGPS=true}}{{/data_set}}\n\n{{firstname}} opens the Navigation app on their phone, keying in Kat's address\n\n{{#system}}Now navigating to...Kat Rhodes{{/system}}\n\n---\n\n[[Next->Magnolia Avenue, 300 block]]",
+      "links": [
+        {
+          "name": "Next",
+          "link": "Magnolia Avenue, 300 block",
+          "pid": "11"
+        }
+      ],
+      "name": "Open GPS App to get to Kat's",
+      "pid": "10",
+      "position": {
+        "x": "275",
+        "y": "650"
+      }
+    },
+    {
+      "text": "Magnolia Avenue. Home to no-one and nothing notable, except for {{firstname}}, themselves.\n\n{{#if usingGPS}}\n{{#system}}Head **east** on Magnolia Avenue{{/system}}\n{{/if}}\n\n---\n\n[[East->Magnolia Ave., 200 block]]\n[[West->Magnolia Ave., 400 block]] ",
+      "links": [
+        {
+          "name": "East",
+          "link": "Magnolia Ave., 200 block",
+          "pid": "12"
+        },
+        {
+          "name": "West",
+          "link": "Magnolia Ave., 400 block",
+          "pid": "13"
+        }
+      ],
+      "name": "Magnolia Avenue, 300 block",
+      "pid": "11",
+      "position": {
+        "x": "550",
+        "y": "850"
+      },
+      "tags": [
+        "navigation"
+      ]
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "Magnolia Ave., 200 block",
+      "pid": "12",
+      "position": {
+        "x": "400",
+        "y": "850"
+      }
+    },
+    {
+      "text": "Double-click this passage to edit it.",
+      "name": "Magnolia Ave., 400 block",
+      "pid": "13",
+      "position": {
+        "x": "700",
+        "y": "850"
+      }
     }
   ],
   "name": "Bunker",
-  "startnode": "1",
+  "startnode": "7",
   "creator": "Twine",
   "creator-version": "2.2.1",
   "ifid": "7F9A6884-313A-4E9A-AB6E-7FAB9CDBA253"

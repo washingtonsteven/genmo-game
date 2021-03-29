@@ -5,6 +5,7 @@ export const statLookup = {
 
 export const promptDefaults = {
   username: "ada",
+  name: "Ada Johnson",
 };
 
 export const statName = (stat) => statLookup[stat] || stat;

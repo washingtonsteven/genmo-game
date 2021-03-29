@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   allPromptsResponded,
   getNeededPrompts,
+  promptSideEffects,
 } from "../utils/promptFunctions";
 import { promptDefault, statName } from "../strings";
 
@@ -26,10 +27,12 @@ export const Prompt = ({ passage, onPromptResponded }) => {
     const setValues = { ...promptValues };
     getNeededPrompts(passage).forEach((prompt) => {
       if (promptDefault(prompt.key)) {
-        setValues[prompt.key] = promptDefault(prompt.key);
+        setValues[prompt.key] =
+          setValues[prompt.key] || promptDefault(prompt.key);
       }
     });
-    onPromptResponded(setValues);
+    const valuesWithSideEffects = promptSideEffects(setValues);
+    onPromptResponded(valuesWithSideEffects);
   };
 
   return (
